@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import BasicLayout from '@/components/BasicLayout'
 import Banner from '@/components/Banner'
+import Products from '@/components/Products'
 
 export default function Home() {
   return (
@@ -14,13 +15,29 @@ export default function Home() {
       <BasicLayout>
         <Banner />
 
-        <div className=" max-w-3xl mx-auto grid grid-rows-1 grid-cols-3">
+        <div className=" max-w-3xl mx-auto grid grid-rows-1 grid-cols-3 gap-10">
           <div className="col-span-2">
-            <p>상품 목록</p>
+            <h1 className="text-2xl font-bold text-center mt-8">
+              추천 상품 목록
+            </h1>
+
+            <Products />
+
+            <div className="btn-group w-100 flex justify-center mb-8">
+              <button className="btn btn-active">1</button>
+              <button className="btn">2</button>
+              <button className="btn">3</button>
+              <button className="btn">4</button>
+            </div>
           </div>
 
-          <div className="col-span-1">
-            <p>유저 정보 및 알림</p>
+          <div className="col-span-1 grid grid-rows-2 grid-cols-1 gap-5">
+            <div>
+              <h1 className="text-2xl font-bold text-center mt-8">유저 정보</h1>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-center mt-8">알림</h1>
+            </div>
           </div>
         </div>
       </BasicLayout>
