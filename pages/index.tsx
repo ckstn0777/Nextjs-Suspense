@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import BasicLayout from '@/components/BasicLayout'
+import Banner from '@/components/Banner'
 
 export default function Home() {
   return (
@@ -11,7 +12,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout>
-        <section>메인 컨텐츠</section>
+        <Banner />
+
+        <div className=" max-w-3xl mx-auto grid grid-rows-1 grid-cols-3">
+          <div className="col-span-2">
+            <p>상품 목록</p>
+          </div>
+
+          <div className="col-span-1">
+            <p>유저 정보 및 알림</p>
+          </div>
+        </div>
       </BasicLayout>
     </>
   )

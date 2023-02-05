@@ -7,7 +7,7 @@ function Header() {
         <ul className="flex items-center justify-between py-4">
           <li>
             <Link href="/" className="text-2xl font-bold text-primary">
-              Home
+              Chan 마켓
             </Link>
           </li>
         </ul>
