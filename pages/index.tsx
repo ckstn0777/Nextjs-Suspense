@@ -3,6 +3,7 @@ import BasicLayout from '@/components/BasicLayout'
 import Banner from '@/components/Banner'
 import Products from '@/components/Products'
 import UserInfo from '@/components/UserInfo'
+import Alarm from '@/components/Alarm'
 
 export default function Home() {
   return (
@@ -38,7 +39,8 @@ export default function Home() {
               <UserInfo />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-center mt-8">알림</h1>
+              <h1 className="text-2xl font-bold text-center mb-4">알림</h1>
+              <Alarm />
             </div>
           </div>
         </div>
