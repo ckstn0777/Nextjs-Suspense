@@ -2,6 +2,7 @@ import Head from 'next/head'
 import BasicLayout from '@/components/BasicLayout'
 import Banner from '@/components/Banner'
 import Products from '@/components/Products'
+import UserInfo from '@/components/UserInfo'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <BasicLayout>
         <Banner />
 
-        <div className=" max-w-3xl mx-auto grid grid-rows-1 grid-cols-3 gap-10">
+        <div className=" max-w-4xl mx-auto grid grid-rows-1 grid-cols-3 gap-8">
           <div className="col-span-2">
             <h1 className="text-2xl font-bold text-center mt-8">
               추천 상품 목록
@@ -34,6 +35,7 @@ export default function Home() {
           <div className="col-span-1 grid grid-rows-2 grid-cols-1 gap-5">
             <div>
               <h1 className="text-2xl font-bold text-center mt-8">유저 정보</h1>
+              <UserInfo />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-center mt-8">알림</h1>

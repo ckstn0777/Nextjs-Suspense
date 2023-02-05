@@ -1,6 +1,6 @@
 function Product() {
   return (
-    <div className="card card-compact w-52 bg-base-100 shadow-xl">
+    <div className="card card-compact w-52 bg-base-100 shadow-xl justify-self-center">
       <figure className="bg-slate-50">
         <img
           src="https://thumbnail10.coupangcdn.com/thumbnails/remote/292x292ex/image/vendor_inventory/2b96/fe7e61631cc663223543f2578b71872e6c8318bca2d685cd286bc7040aea.jpg"
@@ -21,7 +21,7 @@ function Product() {
 
 export default function Products() {
   return (
-    <div className="grid grid-rows-2 grid-cols-2 gap-10 my-10">
+    <div className="grid grid-rows-2 grid-cols-2 gap-8 my-10">
       {Array.from({ length: 4 }).map((_, index) => (
         <Product key={index} />
       ))}
