@@ -7,7 +7,11 @@ const nextConfig = {
     ],
   },
   images: {
-    domains: ['source.unsplash.com'],
+    domains: [
+      'source.unsplash.com',
+      'daisyui.com',
+      'thumbnail10.coupangcdn.com',
+    ],
   },
 }
 
