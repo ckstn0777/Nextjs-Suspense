@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 배너 테이블 (banner)
+model Banner {
+  id         Int      @id @default(autoincrement())
+  imageUrl   String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("banner")
+}
+
+// 사용자 테이블 (user)
+model User {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(255)
+  email      String   @db.VarChar(255)
+  introduce  String   @db.VarChar(255)
+  imageUrl   String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  notification Notification[]
+
+  @@map("user")
+}
+
+// 알림 테이블 (notification)
+model Notification {
+  id         Int      @id @default(autoincrement())
+  content    String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notification")
+}
+
+// 상품 테이블  (product)
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(255)
+  price      Int
+  imageUrl   String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("product")
+}
