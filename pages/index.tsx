@@ -4,8 +4,10 @@ import Banner from '@/components/Banner'
 import Products from '@/components/Products'
 import UserInfo from '@/components/UserInfo'
 import Alarm from '@/components/Alarm'
+import { GetServerSideProps } from 'next'
+import { Banner as BannerType } from '@prisma/client'
 
-export default function Home() {
+export default function Home({ banners }: { banners: BannerType[] }) {
   return (
     <>
       <Head>
@@ -15,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout>
-        <Banner />
+        <Banner banners={banners} />
 
         <div className=" max-w-4xl mx-auto grid grid-rows-1 grid-cols-3 gap-8">
           <div className="col-span-2">
@@ -47,4 +49,17 @@ export default function Home() {
       </BasicLayout>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch('http://localhost:3000/api/banner')
+  const banners = await res.json()
+
+  console.log('banner', banners)
+
+  return {
+    props: {
+      banners,
+    },
+  }
 }
