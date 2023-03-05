@@ -8,14 +8,32 @@ export default async function handler(
 ) {
   if (req.method == 'GET') {
     try {
-      const banner = await prisma.banner.findMany()
-      //const banner = await prisma.$queryRaw`SELECT * FROM "Banner"'`
-      // const banner: Banner[] =
-      //   await prisma.$queryRaw`SELECT * FROM Banner, pg_sleep(5);`
-      //await prisma.$queryRaw`SELECT pg_sleep(5);`
+      // const banner = await prisma.banner.findMany()
 
       // sleep 5 secondes
-      await new Promise((resolve) => setTimeout(resolve, 5000))
+      // await new Promise((resolve) => setTimeout(resolve, 5000))
+      console.log('banner api called')
+
+      const banner: Banner[] = [
+        {
+          id: 2,
+          imageUrl: 'http://source.unsplash.com/r0DusB-OgRM',
+          created_at: new Date('2023-02-11T16:26:16.194Z'),
+          updated_at: new Date('2023-02-11T16:26:16.194Z'),
+        },
+        {
+          id: 3,
+          imageUrl: 'http://source.unsplash.com/4oWSXdeAS2g',
+          created_at: new Date('2023-02-11T16:26:16.194Z'),
+          updated_at: new Date('2023-02-11T16:26:16.194Z'),
+        },
+        {
+          id: 4,
+          imageUrl: 'http://source.unsplash.com/GoKXJaQoLQs',
+          created_at: new Date('2023-02-11T16:26:16.194Z'),
+          updated_at: new Date('2023-02-11T16:26:16.194Z'),
+        },
+      ]
 
       return res.status(200).json(banner)
     } catch (e) {
