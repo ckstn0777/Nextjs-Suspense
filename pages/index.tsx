@@ -52,6 +52,7 @@ export default function Home({ banners }: { banners: BannerType[] }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log(`${process.env.NEXT_PUBLIC_APP_URL}/api/banner`)
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/banner`)
   const banners = await res.json()
 
